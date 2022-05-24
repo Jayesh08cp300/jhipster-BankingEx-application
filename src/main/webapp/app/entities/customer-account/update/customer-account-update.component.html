@@ -1,0 +1,74 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-customer-account-heading"
+        data-cy="CustomerAccountCreateUpdateHeading"
+        jhiTranslate="bankingExApp.customerAccount.home.createOrEditLabel"
+      >
+        Create or edit a Customer Account
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="bankingExApp.customerAccount.accountNo" for="field_accountNo">Account No</label>
+          <input type="text" class="form-control" name="accountNo" id="field_accountNo" data-cy="accountNo" formControlName="accountNo" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="bankingExApp.customerAccount.balance" for="field_balance">Balance</label>
+          <input type="number" class="form-control" name="balance" id="field_balance" data-cy="balance" formControlName="balance" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="bankingExApp.customerAccount.bank" for="field_bank">Bank</label>
+          <select class="form-control" id="field_bank" data-cy="bank" name="bank" formControlName="bank">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="bankOption.id === editForm.get('bank')!.value?.id ? editForm.get('bank')!.value : bankOption"
+              *ngFor="let bankOption of banksSharedCollection; trackBy: trackBankById"
+            >
+              {{ bankOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="bankingExApp.customerAccount.customer" for="field_customer">Customer</label>
+          <select class="form-control" id="field_customer" data-cy="customer" name="customer" formControlName="customer">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="customerOption.id === editForm.get('customer')!.value?.id ? editForm.get('customer')!.value : customerOption"
+              *ngFor="let customerOption of customersSharedCollection; trackBy: trackCustomerById"
+            >
+              {{ customerOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
