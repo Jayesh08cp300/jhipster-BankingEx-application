@@ -1,0 +1,27 @@
+
+
+entity Bank {
+	bankName String
+    transactionCharge Float
+}
+
+entity CustomerAccount {
+	accountNo String
+    balance Float
+}
+
+entity Customer {
+	fullName String
+    address String
+    mobileNo String
+}
+
+entity Transaction {
+	amount Float
+}
+
+relationship OneToMany {
+	Bank to CustomerAccount,
+    Customer to CustomerAccount
+    CustomerAccount to Transaction
+}
