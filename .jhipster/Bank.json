@@ -1,0 +1,31 @@
+{
+  "applications": "*",
+  "changelogDate": "20220525122719",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "bank",
+  "fields": [
+    {
+      "fieldName": "bankName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "transactionCharge",
+      "fieldType": "Float"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Bank",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "customerAccount",
+      "otherEntityRelationshipName": "bank",
+      "relationshipName": "customerAccount",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

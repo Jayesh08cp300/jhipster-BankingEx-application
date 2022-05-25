@@ -1,0 +1,35 @@
+{
+  "applications": "*",
+  "changelogDate": "20220525122721",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "customer",
+  "fields": [
+    {
+      "fieldName": "fullName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "address",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "mobileNo",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Customer",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "customerAccount",
+      "otherEntityRelationshipName": "customer",
+      "relationshipName": "customerAccount",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}
