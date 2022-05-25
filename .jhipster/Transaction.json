@@ -1,0 +1,27 @@
+{
+  "applications": "*",
+  "changelogDate": "20220525122722",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "transaction",
+  "fields": [
+    {
+      "fieldName": "amount",
+      "fieldType": "Float"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Transaction",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "customerAccount",
+      "otherEntityRelationshipName": "transaction",
+      "relationshipName": "customerAccount",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

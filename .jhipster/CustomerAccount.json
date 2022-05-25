@@ -1,0 +1,43 @@
+{
+  "applications": "*",
+  "changelogDate": "20220525122720",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "customer_account",
+  "fields": [
+    {
+      "fieldName": "accountNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "balance",
+      "fieldType": "Float"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "CustomerAccount",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "transaction",
+      "otherEntityRelationshipName": "customerAccount",
+      "relationshipName": "transaction",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "bank",
+      "otherEntityRelationshipName": "customerAccount",
+      "relationshipName": "bank",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "customer",
+      "otherEntityRelationshipName": "customerAccount",
+      "relationshipName": "customer",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}
